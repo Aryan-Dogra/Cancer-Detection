@@ -232,4 +232,12 @@ if __name__ == '__main__':
     print("\nStarting server on http://localhost:5000")
     print("="*50 + "\n")
     
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5000)if __name__ == '__main__':
+    print("\n" + "="*50)
+    print("OncoCare Cancer Detection API")
+    print("="*50)
+    print(f"\nModels directory: {MODELS_DIR}")
+    print(f"Models loaded: {list(models.keys())}")
+    print("="*50 + "\n")
+    
+    app.run(host="0.0.0.0", port=10000)
