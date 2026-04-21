@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OncoCare - Cancer Detection System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🩺</span>
+                <span class="logo-text">OncoCare</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="#cancer-types">Detection</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="#cancer-types">Detection</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Early Detection <span class="highlight">Saves Lives</span></h1>
+            <p>OncoCare uses advanced AI technology to help detect early signs of cancer. Quick, easy, and reliable health screening at your fingertips.</p>
+            <a href="#cancer-types" class="btn btn-primary">Start Screening</a>
+        </div>
+        <div class="hero-image">
+            <div class="hero-visual">
+                <div class="pulse-circle"></div>
+                <div class="medical-icon">🏥</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stat-card">
+            <span class="stat-number">4</span>
+            <span class="stat-label">Cancer Types</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-number">95%</span>
+            <span class="stat-label">Accuracy Rate</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-number">2min</span>
+            <span class="stat-label">Quick Results</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Availability</span>
+        </div>
+    </section>
+
+    <!-- Cancer Types Section -->
+    <section class="cancer-types" id="cancer-types">
+        <h2 class="section-title">Select Cancer Type for Screening</h2>
+        <p class="section-subtitle">Choose the type of cancer screening you want to perform</p>
+        
+        <div class="cancer-grid">
+            <a href="liver.html" class="cancer-card liver">
+                <div class="card-icon">🫀</div>
+                <h3>Liver Cancer</h3>
+                <p>Screen for hepatocellular carcinoma and other liver cancers</p>
+                <span class="card-btn">Start Screening →</span>
+            </a>
+            
+            <a href="lung.html" class="cancer-card lung">
+                <div class="card-icon">🫁</div>
+                <h3>Lung Cancer</h3>
+                <p>Detect early signs of lung cancer and respiratory issues</p>
+                <span class="card-btn">Start Screening →</span>
+            </a>
+            
+            <a href="kidney.html" class="cancer-card kidney">
+                <div class="card-icon">🫘</div>
+                <h3>Kidney Cancer</h3>
+                <p>Screen for renal cell carcinoma and kidney abnormalities</p>
+                <span class="card-btn">Start Screening →</span>
+            </a>
+            
+            <a href="skin.html" class="cancer-card skin">
+                <div class="card-icon">🧬</div>
+                <h3>Skin Cancer</h3>
+                <p>Detect melanoma and other skin cancer indicators</p>
+                <span class="card-btn">Start Screening →</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Select Cancer Type</h3>
+                <p>Choose the type of screening you want to perform</p>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Enter Your Data</h3>
+                <p>Fill in the required health information accurately</p>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Get Results</h3>
+                <p>Receive AI-powered analysis and recommendations</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2>About OncoCare</h2>
+            <p>OncoCare is an innovative AI-powered cancer detection platform designed to provide early screening for various types of cancer. Our mission is to make cancer detection accessible, affordable, and accurate for everyone.</p>
+            <p>Using advanced machine learning algorithms, we analyze your health data to identify potential risk factors and early signs of cancer. Early detection significantly increases survival rates and treatment success.</p>
+            <div class="about-features">
+                <div class="feature">
+                    <span class="feature-icon">✓</span>
+                    <span>AI-Powered Analysis</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">✓</span>
+                    <span>Quick Results</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">✓</span>
+                    <span>Privacy Protected</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">✓</span>
+                    <span>Medical Guidance</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="disclaimer">
+        <div class="disclaimer-content">
+            <h3>⚠️ Important Medical Disclaimer</h3>
+            <p>OncoCare is a screening tool and should not be used as a substitute for professional medical advice, diagnosis, or treatment. Always consult with qualified healthcare providers for any health concerns. If you experience symptoms, please seek immediate medical attention.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <span>support@oncocare.com</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <span>+91 6378870750</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <span>123 Medical Center Dr, Chandigarh</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="logo-icon">🩺</span>
+                <span class="logo-text">OncoCare</span>
+                <p>Early Detection Saves Lives</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 OncoCare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

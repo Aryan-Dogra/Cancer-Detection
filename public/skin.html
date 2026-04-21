@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Cancer Detection - OncoCare</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🩺</span>
+                <span class="logo-text">OncoCare</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#cancer-types" class="active">Detection</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="index.html#cancer-types">Detection</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+
+    <!-- Form Header -->
+    <section class="form-header skin-header">
+        <div class="form-header-content">
+            <a href="index.html" class="back-btn">← Back to Home</a>
+            <div class="form-icon">🧬</div>
+            <h1>Skin Cancer Screening</h1>
+            <p>Please fill in the following information for skin cancer risk assessment</p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <form id="skinForm" class="screening-form">
+            <div class="form-grid">
+                <!-- Age -->
+                <div class="form-group">
+                    <label for="age">Age (years)</label>
+                    <input type="number" id="age" name="age" min="1" max="120" placeholder="Enter your age" required>
+                    <span class="input-hint">Enter your current age</span>
+                </div>
+
+                <!-- Sun Exposure -->
+                <div class="form-group">
+                    <label>Do you have frequent sun exposure?</label>
+                    <div class="toggle-group">
+                        <input type="radio" id="sun_yes" name="sun_exposure" value="1" required>
+                        <label for="sun_yes" class="toggle-btn">Yes</label>
+                        <input type="radio" id="sun_no" name="sun_exposure" value="0">
+                        <label for="sun_no" class="toggle-btn">No</label>
+                    </div>
+                    <span class="input-hint">Regular outdoor activities without sun protection</span>
+                </div>
+
+                <!-- Skin Type -->
+                <div class="form-group">
+                    <label for="skin_type">Select Your Skin Type</label>
+                    <div class="skin-type-group">
+                        <input type="radio" id="skin_fair" name="skin_type" value="1" required>
+                        <label for="skin_fair" class="skin-type-btn">
+                            <span class="skin-color fair"></span>
+                            <span>Fair</span>
+                        </label>
+                        <input type="radio" id="skin_brown" name="skin_type" value="2">
+                        <label for="skin_brown" class="skin-type-btn">
+                            <span class="skin-color brown"></span>
+                            <span>Brown</span>
+                        </label>
+                        <input type="radio" id="skin_dark" name="skin_type" value="3">
+                        <label for="skin_dark" class="skin-type-btn">
+                            <span class="skin-color dark"></span>
+                            <span>Dark</span>
+                        </label>
+                    </div>
+                    <span class="input-hint">Fair skin has higher sensitivity to UV rays</span>
+                </div>
+
+                <!-- Lesion Size -->
+                <div class="form-group">
+                    <label for="lesion_size">Lesion/Mole Size (mm)</label>
+                    <input type="number" id="lesion_size" name="lesion_size" step="0.1" min="0" max="50" placeholder="e.g., 5.0" required>
+                    <span class="input-hint">Size of suspicious lesion or mole (if applicable, enter 0 if none)</span>
+                </div>
+
+                <!-- Family History -->
+                <div class="form-group">
+                    <label>Do you have a family history of skin cancer?</label>
+                    <div class="toggle-group">
+                        <input type="radio" id="history_yes" name="family_history" value="1" required>
+                        <label for="history_yes" class="toggle-btn">Yes</label>
+                        <input type="radio" id="history_no" name="family_history" value="0">
+                        <label for="history_no" class="toggle-btn">No</label>
+                    </div>
+                    <span class="input-hint">Parents, siblings, or close relatives</span>
+                </div>
+
+                <!-- Itching -->
+                <div class="form-group">
+                    <label>Do you experience itching in moles/lesions?</label>
+                    <div class="toggle-group">
+                        <input type="radio" id="itching_yes" name="itching" value="1" required>
+                        <label for="itching_yes" class="toggle-btn">Yes</label>
+                        <input type="radio" id="itching_no" name="itching" value="0">
+                        <label for="itching_no" class="toggle-btn">No</label>
+                    </div>
+                    <span class="input-hint">Persistent itching in skin lesions</span>
+                </div>
+
+                <!-- Bleeding -->
+                <div class="form-group">
+                    <label>Do your moles/lesions bleed easily?</label>
+                    <div class="toggle-group">
+                        <input type="radio" id="bleeding_yes" name="bleeding" value="1" required>
+                        <label for="bleeding_yes" class="toggle-btn">Yes</label>
+                        <input type="radio" id="bleeding_no" name="bleeding" value="0">
+                        <label for="bleeding_no" class="toggle-btn">No</label>
+                    </div>
+                    <span class="input-hint">Bleeding without significant trauma</span>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="resetForm('skinForm')">Reset Form</button>
+                <button type="submit" class="btn btn-primary">Analyze Results</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Results Section (Hidden by default) -->
+    <section class="results-section" id="resultsSection" style="display: none;">
+        <div class="results-card">
+            <h2>Screening Results</h2>
+            <div class="results-content" id="resultsContent">
+                <!-- Results will be displayed here -->
+            </div>
+            <div class="results-actions">
+                <button class="btn btn-secondary" onclick="hideResults()">Screen Again</button>
+                <button class="btn btn-primary" onclick="printResults()">Print Results</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section">
+        <h2>About Skin Cancer</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Risk Factors</h3>
+                <ul>
+                    <li>Excessive UV exposure</li>
+                    <li>Fair skin, light hair</li>
+                    <li>History of sunburns</li>
+                    <li>Many moles or atypical moles</li>
+                    <li>Family history</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>Warning Signs (ABCDE)</h3>
+                <ul>
+                    <li><strong>A</strong>symmetry in shape</li>
+                    <li><strong>B</strong>order irregularity</li>
+                    <li><strong>C</strong>olor variation</li>
+                    <li><strong>D</strong>iameter larger than 6mm</li>
+                    <li><strong>E</strong>volving size or appearance</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>Prevention Tips</h3>
+                <ul>
+                    <li>Use sunscreen (SPF 30+)</li>
+                    <li>Wear protective clothing</li>
+                    <li>Avoid peak sun hours</li>
+                    <li>Regular skin self-exams</li>
+                    <li>Annual dermatologist visits</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="logo-icon">🩺</span>
+                <span class="logo-text">OncoCare</span>
+                <p>Early Detection Saves Lives</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 OncoCare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

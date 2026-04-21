@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lung Cancer Detection - OncoCare</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🩺</span>
+                <span class="logo-text">OncoCare</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#cancer-types" class="active">Detection</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="index.html#cancer-types">Detection</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+
+    <!-- Form Header -->
+    <section class="form-header lung-header">
+        <div class="form-header-content">
+            <a href="index.html" class="back-btn">← Back to Home</a>
+            <div class="form-icon">🫁</div>
+            <h1>Lung Cancer Screening</h1>
+            <p>Please fill in the following information for lung cancer risk assessment</p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <form id="lungForm" class="screening-form">
+            <div class="form-grid">
+                <!-- Age -->
+                <div class="form-group">
+                    <label for="age">Age (years)</label>
+                    <input type="number" id="age" name="age" min="1" max="120" placeholder="Enter your age" required>
+                    <span class="input-hint">Enter your current age</span>
+                </div>
+
+                <!-- Smoking -->
+                <div class="form-group">
+                    <label>Do you smoke or have a smoking history?</label>
+                    <div class="toggle-group">
+                        <input type="radio" id="smoking_yes" name="smoking" value="1" required>
+                        <label for="smoking_yes" class="toggle-btn">Yes</label>
+                        <input type="radio" id="smoking_no" name="smoking" value="0">
+                        <label for="smoking_no" class="toggle-btn">No</label>
+                    </div>
+                    <span class="input-hint">Include current or past smoking habits</span>
+                </div>
+
+                <!-- Cough -->
+                <div class="form-group">
+                    <label>Do you have a persistent cough?</label>
+                    <div class="toggle-group">
+                        <input type="radio" id="cough_yes" name="cough" value="1" required>
+                        <label for="cough_yes" class="toggle-btn">Yes</label>
+                        <input type="radio" id="cough_no" name="cough" value="0">
+                        <label for="cough_no" class="toggle-btn">No</label>
+                    </div>
+                    <span class="input-hint">Cough lasting more than 3 weeks</span>
+                </div>
+
+                <!-- Chest Pain -->
+                <div class="form-group">
+                    <label>Do you experience chest pain?</label>
+                    <div class="toggle-group">
+                        <input type="radio" id="chest_pain_yes" name="chest_pain" value="1" required>
+                        <label for="chest_pain_yes" class="toggle-btn">Yes</label>
+                        <input type="radio" id="chest_pain_no" name="chest_pain" value="0">
+                        <label for="chest_pain_no" class="toggle-btn">No</label>
+                    </div>
+                    <span class="input-hint">Pain that worsens with breathing or coughing</span>
+                </div>
+
+                <!-- Fatigue -->
+                <div class="form-group">
+                    <label>Do you experience persistent fatigue?</label>
+                    <div class="toggle-group">
+                        <input type="radio" id="fatigue_yes" name="fatigue" value="1" required>
+                        <label for="fatigue_yes" class="toggle-btn">Yes</label>
+                        <input type="radio" id="fatigue_no" name="fatigue" value="0">
+                        <label for="fatigue_no" class="toggle-btn">No</label>
+                    </div>
+                    <span class="input-hint">Unusual tiredness lasting weeks</span>
+                </div>
+
+                <!-- Shortness of Breath -->
+                <div class="form-group">
+                    <label>Do you experience shortness of breath?</label>
+                    <div class="toggle-group">
+                        <input type="radio" id="shortness_yes" name="shortness_of_breath" value="1" required>
+                        <label for="shortness_yes" class="toggle-btn">Yes</label>
+                        <input type="radio" id="shortness_no" name="shortness_of_breath" value="0">
+                        <label for="shortness_no" class="toggle-btn">No</label>
+                    </div>
+                    <span class="input-hint">Difficulty breathing during normal activities</span>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="resetForm('lungForm')">Reset Form</button>
+                <button type="submit" class="btn btn-primary">Analyze Results</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Results Section (Hidden by default) -->
+    <section class="results-section" id="resultsSection" style="display: none;">
+        <div class="results-card">
+            <h2>Screening Results</h2>
+            <div class="results-content" id="resultsContent">
+                <!-- Results will be displayed here -->
+            </div>
+            <div class="results-actions">
+                <button class="btn btn-secondary" onclick="hideResults()">Screen Again</button>
+                <button class="btn btn-primary" onclick="printResults()">Print Results</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section">
+        <h2>About Lung Cancer</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Risk Factors</h3>
+                <ul>
+                    <li>Smoking (primary risk factor)</li>
+                    <li>Secondhand smoke exposure</li>
+                    <li>Radon gas exposure</li>
+                    <li>Asbestos exposure</li>
+                    <li>Family history of lung cancer</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>Common Symptoms</h3>
+                <ul>
+                    <li>Persistent cough</li>
+                    <li>Coughing up blood</li>
+                    <li>Chest pain</li>
+                    <li>Hoarseness</li>
+                    <li>Unexplained weight loss</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>Prevention Tips</h3>
+                <ul>
+                    <li>Quit smoking immediately</li>
+                    <li>Avoid secondhand smoke</li>
+                    <li>Test home for radon</li>
+                    <li>Avoid carcinogens at work</li>
+                    <li>Eat a healthy diet</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="logo-icon">🩺</span>
+                <span class="logo-text">OncoCare</span>
+                <p>Early Detection Saves Lives</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 OncoCare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
