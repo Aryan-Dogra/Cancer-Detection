@@ -1,6 +1,5 @@
 // ===== Configuration =====
-const API_BASE_URL = 'http://localhost:5000/api';
-
+const API_BASE_URL = 'https://cancer-detection-kjyv.onrender.com/api';
 // ===== Mobile Menu Toggle =====
 function toggleMobileMenu() {
     const mobileMenu = document.getElementById('mobileMenu');
